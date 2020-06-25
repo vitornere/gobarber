@@ -1,0 +1,36 @@
+version: "3"
+services:
+  gobarber_postgres:
+    image: postgres:latest
+    container_name: gobarber_postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.ignore/postgres/postgres:/var/lib/postgresql/data
+    networks:
+      - gobarber_api
+    environment:
+      - POSTGRES_NAME=gobarber_db
+      - NEW_POSTGRES_NAME=gobarber_db
+      - POSTGRES_PASSWORD=gobarber
+      - POSTGRES_USER=gobarber
+      - POSTGRES_DB=gobarber_db
+
+  gobarber_pgadmin:
+    image: dpage/pgadmin4
+    container_name: gobarber_pgadmin
+    ports:
+      - "5433:80"
+    networks:
+      - gobarber_api
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@gobarber.com
+      - PGADMIN_DEFAULT_PASSWORD=gobarber_pass
+    volumes:
+      - ./.ignore/var/lib/pgadmin:/var/lib/pgadmin
+    logging:
+      driver: none
+
+networks:
+  gobarber_api:
+    driver: bridge
