@@ -9,24 +9,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Access backend directory
-        run: cd backend
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: install # will run `yarn install` command
+          cmd: --cwd backend install # will run `yarn install` command in backend directory
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: build # will run `yarn build` command
+          cmd: --cwd backend build # will run `yarn build` command in backend directory
   frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Access frontend directory
-        run: cd frontend
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: install # will run `yarn install` command
+          cmd: --cwd frontend install # will run `yarn install` command in frontend directory
       - uses: borales/actions-yarn@v2.0.0
         with:
-          cmd: build # will run `yarn build` command
+          cmd: --cwd frontend build # will run `yarn build` command in frontend directory
