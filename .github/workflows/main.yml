@@ -1,0 +1,28 @@
+name: Build
+
+# Controls when the action will run. Triggers the workflow on push or pull request
+on: [push, pull_request]
+
+jobs:
+  backend:
+    name: Build Backend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: --cwd backend install # will run `yarn install` command in backend directory
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: --cwd backend build # will run `yarn build` command in backend directory
+  frontend:
+    name: Build Frontend
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: --cwd frontend install # will run `yarn install` command in frontend directory
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: --cwd frontend build # will run `yarn build` command in frontend directory
