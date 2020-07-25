@@ -3,6 +3,9 @@
 </h1>
 
 <p align="center">
+	<a href="#" rel="noopener noreferrer">
+    <img alt="Build" src="https://github.com/vitornere/gobarber/workflows/Build/badge.svg?branch=master">
+  </a>
 	<a href="https://www.linkedin.com/in/vitor-nere/" target="_blank" rel="noopener noreferrer">
     <img alt="Made by" src="https://img.shields.io/badge/made%20by-Vitor%20Nere-blue">
   </a>
