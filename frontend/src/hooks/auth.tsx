@@ -27,17 +27,17 @@ const AuthProvider: React.FC = ({ children }) => {
     if (token && user) {
       return {
         token,
-        user: JSON.parse(user)
+        user: JSON.parse(user),
       };
     }
 
     return {} as AuthState;
   });
 
-  const signIn = useCallback(async ({email, password}) => {
+  const signIn = useCallback(async ({ email, password }) => {
     const res = await api.post('sessions', {
       email,
-      password
+      password,
     });
 
     const { token, user } = res.data;
@@ -45,7 +45,7 @@ const AuthProvider: React.FC = ({ children }) => {
     localStorage.setItem('@GoBarber:token', token);
     localStorage.setItem('@GoBarber:user', JSON.stringify(user));
 
-    setData({token, user});
+    setData({ token, user });
   }, []);
 
   const signOut = useCallback(() => {
