@@ -2,6 +2,9 @@ node_modules
 .vscode
 build
 .ignore
-temp/*
+tmp/*
 !tmp/.gitkeep
-
+!tmp/uploads
+tmp/uploads/*
+!tmp/uploads/.gitkeep
+coverage
