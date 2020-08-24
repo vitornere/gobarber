@@ -15,6 +15,9 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: --cwd backend build # will run `yarn build` command in backend directory
+      - uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: --cwd backend test # will run `yarn build` command in backend directory
   frontend:
     name: Build Frontend
     runs-on: ubuntu-latest
